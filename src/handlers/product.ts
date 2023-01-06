@@ -77,4 +77,10 @@ const deleteProduct = async (req: Request, res: Response) => {
   res.json({ data: deletedProduct });
 };
 
-export { getProducts, getProductById, createProduct, updateProduct };
+export {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+};

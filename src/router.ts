@@ -1,5 +1,12 @@
 import { Router } from "express";
 import { body, oneOf, validationResult } from "express-validator";
+import {
+  createProduct,
+  deleteProduct,
+  getProductById,
+  getProducts,
+  updateProduct,
+} from "./handlers/product";
 import { handleInputErrors } from "./modules/middleware";
 
 const router = Router();
@@ -8,18 +15,21 @@ const router = Router();
  * Product
  */
 
-router.get("/product", (req, res) => {
-  res.json({ message: "hello" });
-});
-router.get("/product/:id", () => {});
+router.get("/product", getProducts);
+router.get("/product/:id", getProductById);
 router.put(
   "/product/:id",
   body("name").isString(),
   handleInputErrors,
-  () => {}
+  updateProduct
 );
-router.post("/product", body("name").isString(), handleInputErrors, () => {});
-router.delete("/product/:id", () => {});
+router.post(
+  "/product",
+  body("name").isString(),
+  handleInputErrors,
+  createProduct
+);
+router.delete("/product/:id", deleteProduct);
 
 /**
  * Update
