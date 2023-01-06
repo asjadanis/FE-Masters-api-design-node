@@ -82,4 +82,9 @@ router.post(
 );
 router.delete("/updatepoint/:id", () => {});
 
+router.use((err, req, res, next) => {
+  console.error(err);
+  res.json({ message: "Oops something went wrong" });
+});
+
 export default router;
