@@ -40,7 +40,7 @@ const createProduct = async (req: Request, res: Response) => {
     },
   });
 
-  res.status(200);
+  res.status(201);
   res.json({ data: product });
 };
 
