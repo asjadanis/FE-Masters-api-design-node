@@ -16,6 +16,10 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send({ message: "hello" });
+});
+
 app.use("/api", protect, router);
 app.use("/user", createNewUser);
 app.use("/signin", signin);
